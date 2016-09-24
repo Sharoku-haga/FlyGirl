@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="WindowObject">
+      <UniqueIdentifier>{90106eff-9357-4998-bcc6-1e44669bb1d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectXGraphics">
+      <UniqueIdentifier>{0f52f74e-ddf7-40bf-87c9-1b38735e7fd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectXGraphics\GraphicsD3D">
+      <UniqueIdentifier>{66830fc7-a13d-4697-af7a-fb513b79a296}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectXGraphics\Texture">
+      <UniqueIdentifier>{fa5479bf-0fb0-4f4d-868a-7e6d2d1745d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectInput">
+      <UniqueIdentifier>{ad03a2dc-e5ab-4ab9-8bc3-96b7b72efb3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectInput\InputKey">
+      <UniqueIdentifier>{39319460-8101-4c8b-ac70-11758cfaefce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectInput\InputDevice">
+      <UniqueIdentifier>{580584f3-0db3-44f2-bd73-9596c293ba02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectSound">
+      <UniqueIdentifier>{9ca8f78a-069c-4a9d-807a-c93c6a89612f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectSound\DSound">
+      <UniqueIdentifier>{18430ae3-2d17-447b-b6a8-2774beed9b74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectSound\SoundPlayer">
+      <UniqueIdentifier>{bf467bb3-896a-42fc-991e-5bde12ba40bb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GraphicsD3D.cpp">
+      <Filter>DirectXGraphics\GraphicsD3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>DirectXGraphics\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="InputDevice.cpp">
+      <Filter>DirectInput\InputDevice</Filter>
+    </ClCompile>
+    <ClCompile Include="InputKey.cpp">
+      <Filter>DirectInput\InputKey</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowObject.cpp">
+      <Filter>WindowObject</Filter>
+    </ClCompile>
+    <ClCompile Include="DSound.cpp">
+      <Filter>DirectSound\DSound</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundPlayer.cpp">
+      <Filter>DirectSound\SoundPlayer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GraphicsD3D.h">
+      <Filter>DirectXGraphics\GraphicsD3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>DirectXGraphics\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="InputDevice.h">
+      <Filter>DirectInput\InputDevice</Filter>
+    </ClInclude>
+    <ClInclude Include="InputKey.h">
+      <Filter>DirectInput\InputKey</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowObject.h">
+      <Filter>WindowObject</Filter>
+    </ClInclude>
+    <ClInclude Include="DSound.h">
+      <Filter>DirectSound\DSound</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundPlayer.h">
+      <Filter>DirectSound\SoundPlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="LibClass.h" />
+  </ItemGroup>
+</Project>
