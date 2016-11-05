@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{d8358032-622d-44d7-af59-4dd79507f2bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Font">
+      <UniqueIdentifier>{0d3e817b-3224-4a98-ae52-fcdcff8367f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Light">
+      <UniqueIdentifier>{b1af113d-a252-4973-a825-c7573b9aae67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLib">
+      <UniqueIdentifier>{22bef3fe-1d4a-438d-b4c1-89ab06d7fb21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLib\Lib">
+      <UniqueIdentifier>{2bd9b5fc-1fe8-4a9c-921f-76931cbdca72}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameLib\GameLib.cpp">
+      <Filter>GameLib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Lib\DebugFont.cpp">
+      <Filter>GameLib\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Lib\DebugTimer.cpp">
+      <Filter>GameLib\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Lib\GraphicsDevice.cpp">
+      <Filter>GameLib\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Lib\InputDevice.cpp">
+      <Filter>GameLib\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Lib\InputKey.cpp">
+      <Filter>GameLib\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Lib\InputMouse.cpp">
+      <Filter>GameLib\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Lib\SoundFileManager.cpp">
+      <Filter>GameLib\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Lib\TextureManager.cpp">
+      <Filter>GameLib\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Lib\Vertex.cpp">
+      <Filter>GameLib\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Lib\VertexManager.cpp">
+      <Filter>GameLib\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Lib\WindowCreator.cpp">
+      <Filter>GameLib\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Lib\XFile.cpp">
+      <Filter>GameLib\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Lib\XFileManager.cpp">
+      <Filter>GameLib\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera\Camera.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Font\Font.cpp">
+      <Filter>Font</Filter>
+    </ClCompile>
+    <ClCompile Include="Light\Light.cpp">
+      <Filter>Light</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameLib\GameLib.h">
+      <Filter>GameLib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Lib\DebugFont.h">
+      <Filter>GameLib\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Lib\DebugTimer.h">
+      <Filter>GameLib\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Lib\GraphicsDevice.h">
+      <Filter>GameLib\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Lib\InputDevice.h">
+      <Filter>GameLib\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Lib\InputKey.h">
+      <Filter>GameLib\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Lib\InputMouse.h">
+      <Filter>GameLib\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Lib\SoundFileManager.h">
+      <Filter>GameLib\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Lib\TextureManager.h">
+      <Filter>GameLib\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Lib\Vertex.h">
+      <Filter>GameLib\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Lib\VertexManager.h">
+      <Filter>GameLib\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Lib\WindowCreator.h">
+      <Filter>GameLib\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Lib\XFile.h">
+      <Filter>GameLib\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Lib\XFileManager.h">
+      <Filter>GameLib\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera\Camera.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Font\Font.h">
+      <Filter>Font</Filter>
+    </ClInclude>
+    <ClInclude Include="Light\Light.h">
+      <Filter>Light</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
