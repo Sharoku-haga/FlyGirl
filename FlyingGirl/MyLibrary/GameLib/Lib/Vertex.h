@@ -27,7 +27,7 @@ class Vertex
 private:
 	IDirect3DDevice9*		m_pD3Device;			//!< デバイス
 	float					m_texWidth;		  	    //!< テクスチャーの幅
-	float					m_texheight;			//!< テクスチャーの高さ
+	float					m_texHeight;			//!< テクスチャーの高さ
 	float					m_texDepth;				//!< テクスチャーの奥行き
 	float					m_tuMax;				//!< テクスチャーのtu最大値
 	float					m_tuMin;				//!< テクスチャーのtu最小値

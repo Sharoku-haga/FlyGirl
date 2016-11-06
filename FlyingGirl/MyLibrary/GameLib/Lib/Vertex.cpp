@@ -9,7 +9,7 @@
 Vertex::Vertex(float width, float height, float depth, float tuMax, float tvMax,float tuMin, float tvMin) :
 m_pD3Device(GraphicsDevice::GetInstance().GetDevice()),
 m_texWidth(width),
-m_texheight(height),
+m_texHeight(height),
 m_texDepth(depth),
 m_tuMax(tuMax),
 m_tvMax(tvMax),
@@ -30,11 +30,15 @@ Vertex::~Vertex()
 // 描画(XY座標で考える場合)
 void Vertex::Draw(LPDIRECT3DTEXTURE9 pTexture, float posX, float posY)
 {
+	float texWidth = m_texWidth;
+	float texHeight = m_texHeight;
+	float texDepth = m_texDepth;
+
 	CUSTOMVERTEX vtex[] = {
-		{		0.0f,		 0.0f, m_texDepth, 1.0f, m_color[0], m_tuMin, m_tvMin },
-		{ m_texWidth,	     0.0f, m_texDepth, 1.0f, m_color[1], m_tuMax, m_tvMin },
-		{ m_texWidth, m_texheight, m_texDepth, 1.0f, m_color[2], m_tuMax, m_tvMax },
-		{		0.0f, m_texheight, m_texDepth, 1.0f, m_color[3], m_tuMin, m_tvMax },
+		{	  0.0f,		 0.0f, texDepth, 1.0f, m_color[0], m_tuMin, m_tvMin },
+		{ texWidth,	     0.0f, texDepth, 1.0f, m_color[1], m_tuMax, m_tvMin },
+		{ texWidth, texHeight, texDepth, 1.0f, m_color[2], m_tuMax, m_tvMax },
+		{	  0.0f, texHeight, texDepth, 1.0f, m_color[3], m_tuMin, m_tvMax },
 	};
 
 	for (int i = 0; i < 4; i++)
@@ -50,11 +54,15 @@ void Vertex::Draw(LPDIRECT3DTEXTURE9 pTexture, float posX, float posY)
 // 描画 XZ座標で考える場合
 void Vertex::Draw(LPDIRECT3DTEXTURE9 pTexture, float posX, float posY, float posZ)
 {
+	float texWidth = m_texWidth;
+	float texHeight = m_texHeight;
+	float texDepth = m_texDepth;
+
 	CUSTOMVERTEX vtex[] = {
-		{		0.0f, m_texheight, m_texDepth, 1.0f, m_color[0], m_tuMin, m_tvMax },
-		{ m_texWidth, m_texheight, m_texDepth, 1.0f, m_color[1], m_tuMax, m_tvMax },
-		{ m_texWidth, m_texheight,		 0.0f, 1.0f, m_color[2], m_tuMax, m_tvMin },
-		{		0.0f, m_texheight,		 0.0f, 1.0f, m_color[3], m_tuMin, m_tvMin },
+		{	  0.0f, texHeight,   texDepth, 1.0f, m_color[0], m_tuMin, m_tvMax },
+		{ texWidth, texHeight,   texDepth, 1.0f, m_color[1], m_tuMax, m_tvMax },
+		{ texWidth, texHeight,		 0.0f, 1.0f, m_color[2], m_tuMax, m_tvMin },
+		{	  0.0f, texHeight,		 0.0f, 1.0f, m_color[3], m_tuMin, m_tvMin },
 	};
 
 	for (int i = 0; i < 4; i++)
@@ -71,12 +79,15 @@ void Vertex::Draw(LPDIRECT3DTEXTURE9 pTexture, float posX, float posY, float pos
 // 描画(テクスチャーの中心に座標を合わせる)
 void Vertex::DrawCenterPos(LPDIRECT3DTEXTURE9 pTexture, float posX, float posY)
 {
+	float texWidth = m_texWidth;
+	float texHeight = m_texHeight;
+	float texDepth = m_texDepth;
 
 	CUSTOMVERTEX vtex[] = {
-		{ -m_texWidth, -m_texheight, m_texDepth, 1.0f, m_color[0], m_tuMin, m_tvMin },
-		{  m_texWidth, -m_texheight, m_texDepth, 1.0f, m_color[1], m_tuMax, m_tvMin },
-		{  m_texWidth,  m_texheight, m_texDepth, 1.0f, m_color[2], m_tuMax, m_tvMax },
-		{ -m_texWidth,  m_texheight, m_texDepth, 1.0f, m_color[3], m_tuMin, m_tvMax },
+		{ -texWidth, -texHeight, texDepth, 1.0f, m_color[0], m_tuMin, m_tvMin },
+		{  texWidth, -texHeight, texDepth, 1.0f, m_color[1], m_tuMax, m_tvMin },
+		{  texWidth,  texHeight, texDepth, 1.0f, m_color[2], m_tuMax, m_tvMax },
+		{ -texWidth,  texHeight, texDepth, 1.0f, m_color[3], m_tuMin, m_tvMax },
 	};
 
 	for (int i = 0; i < 4; i++)
@@ -92,12 +103,15 @@ void Vertex::DrawCenterPos(LPDIRECT3DTEXTURE9 pTexture, float posX, float posY)
 // 描画(テクスチャーの中心に座標を合わせる)引数にZ座標追加
 void Vertex::DrawCenterPos(LPDIRECT3DTEXTURE9 pTexture, float posX, float posY, float posZ)
 {
+	float texWidth = m_texWidth;
+	float texHeight = m_texHeight;
+	float texDepth = m_texDepth;
 
 	CUSTOMVERTEX vtex[] = {
-		{ -m_texWidth, m_texheight,  m_texDepth, 1.0f, m_color[0], m_tuMin, m_tvMax },
-		{  m_texWidth, m_texheight,  m_texDepth, 1.0f, m_color[1], m_tuMax, m_tvMax },
-		{  m_texWidth, m_texheight, -m_texDepth, 1.0f, m_color[2], m_tuMax, m_tvMin },
-		{ -m_texWidth, m_texheight, -m_texDepth, 1.0f, m_color[3], m_tuMin, m_tvMin },
+		{ -texWidth, texHeight,  texDepth, 1.0f, m_color[0], m_tuMin, m_tvMax },
+		{  texWidth, texHeight,  texDepth, 1.0f, m_color[1], m_tuMax, m_tvMax },
+		{  texWidth, texHeight, -texDepth, 1.0f, m_color[2], m_tuMax, m_tvMin },
+		{ -texWidth, texHeight, -texDepth, 1.0f, m_color[3], m_tuMin, m_tvMin },
 	};
 
 	for (int i = 0; i < 4; i++)
@@ -114,7 +128,7 @@ void Vertex::DrawCenterPos(LPDIRECT3DTEXTURE9 pTexture, float posX, float posY, 
 void Vertex::SetTexSize(float texWidth, float texHeight)
 {
 	m_texWidth = texWidth;
-	m_texheight = texHeight;
+	m_texHeight = texHeight;
 }
 
 // tu,tv値を設定する関数
