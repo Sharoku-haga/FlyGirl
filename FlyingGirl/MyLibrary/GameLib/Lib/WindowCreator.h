@@ -22,6 +22,7 @@ private:
 	int		    m_wWidth;			//!< ウインドウの幅
 	int			m_wHeight;			//!< ウィンドウの高さ
 	bool		m_wType;			//!< ウィンドウサイズが通常ならtrue,フルスクリーンならfalse
+	bool		m_hasIcon;			//!< アイコンをもつかどうかのフラグ
 
 public:
 	/**
@@ -45,6 +46,11 @@ public:
 	*/
 	HRESULT MakeWindow(HINSTANCE hInstance, LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp), bool windowType);
 
+	/**
+	* アイコンを作成する関数.
+	* @param iconID アイコンのID
+	*/
+	void CreateIcon(WORD iconID);
 
 	/**
 	* ウィンドウサイズ変更

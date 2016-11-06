@@ -12,7 +12,8 @@ m_hWnd(NULL),
 m_wTitle(title),
 m_wWidth(width),
 m_wHeight(height),
-m_wType(true)
+m_wType(true),
+m_hasIcon(false)
 {
 }
 
@@ -30,7 +31,14 @@ HRESULT WindowCreator::MakeWindow(HINSTANCE hInstance, LRESULT CALLBACK WndProc(
 	m_wndc.lpfnWndProc = WndProc;
 	m_wndc.cbClsExtra = m_wndc.cbWndExtra = 0;
 	m_wndc.hInstance = hInstance;
-	m_wndc.hIcon = LoadIcon(NULL, IDI_APPLICATION);
+	if (m_hasIcon)
+	{
+		m_wndc.hIcon = m_hIcon;
+	}
+	else
+	{
+		m_wndc.hIcon = LoadIcon(NULL, IDI_APPLICATION);
+	}
 	m_wndc.hCursor = LoadCursor(NULL, IDC_ARROW);
 	m_wndc.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
 	m_wndc.lpszMenuName = NULL;
@@ -111,6 +119,15 @@ HRESULT WindowCreator::MakeWindow(HINSTANCE hInstance, LRESULT CALLBACK WndProc(
 	return S_OK;
 }
 
+// アイコンを作成する関数
+void WindowCreator::CreateIcon(WORD iconID)
+{
+	HINSTANCE hInstance = GetModuleHandle(NULL);
+
+	m_hIcon = LoadIcon(hInstance,MAKEINTRESOURCE(iconID));
+
+	m_hasIcon = true;		// アイコン作成したフラグをたてる
+}
 
 // ウィンドウサイズを決定する
 HRESULT WindowCreator::ChangeWindowSize()
