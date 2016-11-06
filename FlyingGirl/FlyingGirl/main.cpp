@@ -5,6 +5,7 @@
 */
 #include <windows.h>
 #include <crtdbg.h>
+#include "resource.h"
 #include "GameLib/GameLib.h"
 
 //#define FULLSCREEN
@@ -35,10 +36,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 
 #ifndef FULLSCREEN
 
-	g_pGameLib->InitGameLib(GAME_TITLE, CLIENT_W, CLIENT_H, WindowProc, true);
+	g_pGameLib->InitGameLib(GAME_TITLE, CLIENT_W, CLIENT_H, WindowProc, true, true, IDI_ICON1);
 
 #else
-	g_pGameLib->InitGameLib(GAME_TITLE, CLIENT_W, CLIENT_H, WindowProc, false);
+	g_pGameLib->InitGameLib(GAME_TITLE, CLIENT_W, CLIENT_H, WindowProc, false,true, IDI_ICON1);
 
 #endif
 

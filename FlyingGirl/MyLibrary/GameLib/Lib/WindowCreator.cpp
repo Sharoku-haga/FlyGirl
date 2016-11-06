@@ -43,7 +43,7 @@ HRESULT WindowCreator::MakeWindow(HINSTANCE hInstance, LRESULT CALLBACK WndProc(
 	m_wndc.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
 	m_wndc.lpszMenuName = NULL;
 	m_wndc.lpszClassName = m_wTitle;
-	m_wndc.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
+	m_wndc.hIconSm = NULL;
 
 	if (!RegisterClassEx(&m_wndc))
 	{
@@ -125,6 +125,8 @@ void WindowCreator::CreateIcon(WORD iconID)
 	HINSTANCE hInstance = GetModuleHandle(NULL);
 
 	m_hIcon = LoadIcon(hInstance,MAKEINTRESOURCE(iconID));
+
+	DWORD error = GetLastError();
 
 	m_hasIcon = true;		// アイコン作成したフラグをたてる
 }
