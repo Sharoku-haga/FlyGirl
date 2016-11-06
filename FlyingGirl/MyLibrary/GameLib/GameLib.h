@@ -90,8 +90,11 @@ public:
 	* @param[in] height ウインドウの縦幅
 	* @param[in] Wndproc	ウィンドウプロシージャ関数
 	* @param[in] windowType ウィンドウタイプ trueなら通常,falseならフルスクリーン
+	* @param[in] hasIcon	アイコンを持つかどうかのフラグ
+	* @param[in] iconID		アイコンID
 	*/
-	void InitGameLib(TCHAR*  title, int width, int height, LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM), bool windowType);
+	void InitGameLib(TCHAR*  title, int width, int height, LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM),
+		bool windowType,bool hasIcon = false,WORD iconID = 0);
 
 	/**メモリ開放関数*/
 	void ReleaseGameLib();

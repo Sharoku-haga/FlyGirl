@@ -37,13 +37,19 @@ GameLib::~GameLib()
 }
 
 // 初期化関数
-void GameLib::InitGameLib(TCHAR*  title, int width, int height, LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM), bool windowType)
+void GameLib::InitGameLib(TCHAR*  title, int width, int height, LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM), 
+	bool windowType, bool hasIcon, WORD iconID)
 {
 	m_wWidth = width;
 	m_wHeight = height;
 	HINSTANCE hInstance = GetModuleHandle(NULL);
 
 	m_pWindowCreator = new WindowCreator(title, width, height);
+
+	if (hasIcon)
+	{
+		m_pWindowCreator->CreateIcon(iconID);
+	}
 	
 	m_pGraphicsDevice = &GraphicsDevice::GetInstance();
 	if (windowType)				// ウィンドウサイズ
