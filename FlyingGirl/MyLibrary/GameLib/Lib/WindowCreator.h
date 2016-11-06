@@ -18,6 +18,7 @@ private:
 	HWND		m_hWnd;				//!< ウィンドウハンドル
 	RECT		m_wRect;			//!< ウインドウサイズを保持しておく変数
 	TCHAR*      m_wTitle;			//!< ウィンドウのタイトル
+	HICON	    m_hIcon;			//!< ウィンドウのアイコン
 	int		    m_wWidth;			//!< ウインドウの幅
 	int			m_wHeight;			//!< ウィンドウの高さ
 	bool		m_wType;			//!< ウィンドウサイズが通常ならtrue,フルスクリーンならfalse
@@ -43,6 +44,7 @@ public:
 	* @retval E_FAIL		ウィンドウ生成に失敗した
 	*/
 	HRESULT MakeWindow(HINSTANCE hInstance, LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp), bool windowType);
+
 
 	/**
 	* ウィンドウサイズ変更
