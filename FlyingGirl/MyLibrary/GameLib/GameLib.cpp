@@ -115,7 +115,7 @@ int GameLib::GetWindowHeight()
 	return m_wHeight; 
 }
 
-const IDirect3DDevice9* GameLib:: GetDevice()
+IDirect3DDevice9* GameLib:: GetDevice()
 {
 	return (m_pGraphicsDevice->GetDevice());
 }
