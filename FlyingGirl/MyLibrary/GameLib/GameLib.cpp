@@ -180,6 +180,11 @@ void GameLib::SetVtx(int key,float tuMin, float tuMax, float tvMin, float tvMax,
 	m_pVertexManager->SetColor(key,color);
 }
 
+LPDIRECT3DTEXTURE9 GameLib::GetTexture(int texKey)
+{
+	return m_pTextureManager->GetTex(texKey);
+}
+
 void GameLib::ReleaseTex(bool AllFlag, int key)
 {
 	if (AllFlag)			// すべて破棄するなら

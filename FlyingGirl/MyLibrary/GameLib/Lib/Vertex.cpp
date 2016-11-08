@@ -14,7 +14,9 @@ m_texDepth(depth),
 m_tuMax(tuMax),
 m_tvMax(tvMax),
 m_tuMin(tuMin),
-m_tvMin(tuMin)
+m_tvMin(tuMin),
+m_mag(0,0,0),
+m_isScaling(false)
 {
 	for (int i = 0; i < 4;i++)
 	{
@@ -41,6 +43,12 @@ void Vertex::Draw(LPDIRECT3DTEXTURE9 pTexture, float posX, float posY)
 		{	  0.0f, texHeight, texDepth, 1.0f, m_color[3], m_tuMin, m_tvMax },
 	};
 
+	if (m_isScaling)
+	{
+		ScaleGeometry(vtex);
+	}
+	
+
 	for (int i = 0; i < 4; i++)
 	{
 		vtex[i].x += posX;
@@ -64,6 +72,11 @@ void Vertex::Draw(LPDIRECT3DTEXTURE9 pTexture, float posX, float posY, float pos
 		{ texWidth, texHeight,		 0.0f, 1.0f, m_color[2], m_tuMax, m_tvMin },
 		{	  0.0f, texHeight,		 0.0f, 1.0f, m_color[3], m_tuMin, m_tvMin },
 	};
+
+	if (m_isScaling)
+	{
+		ScaleGeometry(vtex, true);
+	}
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -90,6 +103,11 @@ void Vertex::DrawCenterPos(LPDIRECT3DTEXTURE9 pTexture, float posX, float posY)
 		{ -texWidth,  texHeight, texDepth, 1.0f, m_color[3], m_tuMin, m_tvMax },
 	};
 
+	if (m_isScaling)
+	{
+		ScaleGeometry(vtex);
+	}
+
 	for (int i = 0; i < 4; i++)
 	{
 		vtex[i].x += posX;
@@ -113,6 +131,11 @@ void Vertex::DrawCenterPos(LPDIRECT3DTEXTURE9 pTexture, float posX, float posY, 
 		{  texWidth, texHeight, -texDepth, 1.0f, m_color[2], m_tuMax, m_tvMin },
 		{ -texWidth, texHeight, -texDepth, 1.0f, m_color[3], m_tuMin, m_tvMin },
 	};
+
+	if (m_isScaling)
+	{
+		ScaleGeometry(vtex, true);
+	}
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -147,4 +170,89 @@ void Vertex::SetColor(DWORD color)
 	{
 		m_color[i] = color;
 	}
+}
+
+// 拡縮の設定をする関数
+void Vertex::SetMag(bool isScailing, float magX, float magY, float magZ)
+{
+	m_isScaling = isScailing;
+	m_mag.x = magX;
+	m_mag.y = magY;
+	m_mag.z = magZ;
+}
+
+// 拡縮を行う関数
+void Vertex::ScaleGeometry(CUSTOMVERTEX* vtx, bool xzFlag)
+{
+	D3DXMATRIX PosMatrix;		// 頂点行列
+	D3DXMATRIX MultipleMatrix;	// 拡大・縮小行列
+
+	float cx = 0.0f;		// 中心座標のx座標を格納する変数
+	float cy = 0.0f;		// 中心座標のy座標を格納する変数
+	float cz = 0.0f;		// 中心座標のy座標を格納する変数
+
+	if (!xzFlag)
+	{
+		cx = (vtx[2].x - vtx[0].x) / 2.0f;
+		cy = (vtx[2].y - vtx[0].y) / 2.0f;
+	}
+	else
+	{
+		cx = (vtx[2].x - vtx[0].x) / 2.0f;
+		cz = (vtx[0].z - vtx[2].z) / 2.0f;
+	}
+
+	//原点へ移動させる
+	MoveMatrix(vtx, -cx, -cy, -cz);
+
+	// 行列の初期化（単位行列生成）
+	D3DXMatrixIdentity(&PosMatrix);
+	D3DXMatrixIdentity(&MultipleMatrix);
+
+	// x 軸、y 軸、z 軸に沿ってスケーリングする行列を作成する。
+	D3DXMatrixScaling(&MultipleMatrix, m_mag.x, m_mag.y, m_mag.z);
+
+	// 拡大・縮小処理
+	for (int i = 0; i<4; i++)
+	{
+		// 現在の頂点座標を格納
+		D3DXMatrixTranslation(&PosMatrix, vtx[i].x, vtx[i].y, vtx[i].z);
+		// 拡大、または縮小
+		PosMatrix *= MultipleMatrix;
+		// 結果を戻す
+		vtx[i].x = PosMatrix._41;
+		vtx[i].y = PosMatrix._42;
+		vtx[i].z = PosMatrix._43;
+	}
+
+	//元の位置に移動させる
+	MoveMatrix(vtx, cx, cy, cz);
+}
+
+// 行列を用いて平行移動する関数
+void Vertex::MoveMatrix(CUSTOMVERTEX* vtx, float x, float y, float z)
+{
+	D3DXMATRIX PosMatrix;
+	D3DXMATRIX MoveMatrix;
+
+	// 行列の初期化
+	D3DXMatrixIdentity(&PosMatrix);
+	D3DXMatrixIdentity(&MoveMatrix);
+
+	// 移動量設定
+	D3DXMatrixTranslation(&MoveMatrix, x, y, z);
+
+	// 
+	for (int i = 0; i < 4; i++)
+	{
+		// 現在の頂点座標を格納
+		D3DXMatrixTranslation(&PosMatrix, vtx[i].x, vtx[i].y, vtx[i].z);
+		// 移動
+		PosMatrix *= MoveMatrix;
+		// 結果を返す
+		vtx[i].x = PosMatrix._41;
+		vtx[i].y = PosMatrix._42;
+		vtx[i].z = PosMatrix._43;
+	}
+
 }

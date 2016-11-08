@@ -73,7 +73,7 @@ public:
 	~GameLib();
 
 	/** 
- 	* GameLibの実体を取得する関数<br>
+ 	* GameLibの実体である関数<br>
 	* Singletonパターン.
 	* @return GameLibクラス
 	*/
@@ -195,6 +195,13 @@ public:
 	* @param[in] posZ   z座標
 	*/
 	void DrawXZ(int texKey, int vtxKey, bool center, float posX, float posY, float posZ);
+
+	/**
+	* テクスチャーのポインタを取得する関数
+	* @prama texkey テクスチャーを登録したキー、またはID
+	* @return キーに一致したテクスチャーのポインタ
+	*/
+	LPDIRECT3DTEXTURE9 GetTexture(int texKey);
 
 	/**
 	* テクスチャーを解放する関数
