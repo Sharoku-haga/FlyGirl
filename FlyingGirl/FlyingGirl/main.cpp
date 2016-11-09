@@ -10,12 +10,11 @@
 
 //#define FULLSCREEN
 
-#define GAME_TITLE TEXT("少女大飛行")		// ゲームタイトル
+#define GAME_TITLE TEXT("少女大飛行")		// ゲームタイトルS
 #define CLIENT_W 1280						// クライアント領域の幅
 #define CLIENT_H 960						// クライアント領域の高さ
 #define GAME_FPS (1000 / 60)				// FPS
 
-GameLib*	g_pGameLib = NULL;				// ライブラリ
 
 // ウインドウプロシージャ
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -32,14 +31,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 	//					ゲームの初期設定
 	//------------------------------------------------------------
 
-	g_pGameLib = &GameLib::GetInstance();
 
 #ifndef FULLSCREEN
 
-	g_pGameLib->InitGameLib(GAME_TITLE, CLIENT_W, CLIENT_H, WindowProc, true, true, IDI_ICON1);
+	GameLib::Instance().InitGameLib(GAME_TITLE, CLIENT_W, CLIENT_H, WindowProc, true, true, IDI_ICON1);
 
 #else
-	g_pGameLib->InitGameLib(GAME_TITLE, CLIENT_W, CLIENT_H, WindowProc, false,true, IDI_ICON1);
+	GameLib::Instance().InitGameLib(GAME_TITLE, CLIENT_W, CLIENT_H, WindowProc, false,true, IDI_ICON1);
 
 #endif
 
@@ -69,7 +67,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 		}
 	}
 
-	g_pGameLib->ReleaseGameLib();	// ライブラリ内のメモリ開放
+	GameLib::Instance().ReleaseGameLib();	// ライブラリ内のメモリ開放
 
 	return (INT)msg.wParam;
 
@@ -107,7 +105,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lpara
 		switch ((CHAR)wparam)
 		{
 		case VK_RETURN:     // Alt + Enterを押すとウィンドウ切り替え
-			g_pGameLib->ChangeWindowMode();
+			GameLib::Instance().ChangeWindowMode();
 			break;
 		default:
 			break;

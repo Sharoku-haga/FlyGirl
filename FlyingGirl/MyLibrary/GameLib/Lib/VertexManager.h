@@ -99,6 +99,16 @@ public:
 	void SetColor(int key, DWORD color);
 
 	/**
+	* 拡縮における倍率の設定
+	* @param[in] key	mapのキー
+	* @param[in] isScailing 拡縮するかどうかのフラグ(基本はfalse)
+	* @param[in] magX x座標に処理する倍率
+	* @param[in] magY y座標に処理する倍率
+	* @param[in] magZ z座標に処理する倍率
+	*/
+	void SetMagnification(int key, bool isScailing, float magX = 1, float magY = 1, float magZ = 1);
+
+	/**
 	* バーテックスを解放する関数
 	* @param[in] key	mapのキー
 	*/

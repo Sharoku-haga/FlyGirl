@@ -27,13 +27,24 @@ class Vertex
 private:
 	IDirect3DDevice9*		m_pD3Device;			//!< デバイス
 	float					m_texWidth;		  	    //!< テクスチャーの幅
-	float					m_texheight;			//!< テクスチャーの高さ
+	float					m_texHeight;			//!< テクスチャーの高さ
 	float					m_texDepth;				//!< テクスチャーの奥行き
 	float					m_tuMax;				//!< テクスチャーのtu最大値
 	float					m_tuMin;				//!< テクスチャーのtu最小値
 	float					m_tvMax;				//!< テクスチャーのtv最大値
 	float					m_tvMin;				//!< テクスチャーのtv最小値
 	DWORD                   m_color[4];				//!< 色の値
+	D3DXVECTOR3				m_mag;					//!< 拡縮の倍率
+	bool					m_isScaling;			//!< 拡縮するかどうかのフラグ
+
+	/**
+	* 行列を用いて平行移動させる関数
+	* @param[out] vtx 移動させたいバーテックス 
+	* @param[in] x	x軸においての移動量
+	* @param[in] y  y軸においての移動量
+	* @param[in] z  z軸においての移動量
+	*/
+	void MoveMatrix(CUSTOMVERTEX* vtx, float x, float y, float z);
 
 public:
 	
@@ -115,6 +126,23 @@ public:
 	* @param[in] color  色の設定
 	*/
 	void SetColor(DWORD color);
+
+
+	/**
+	* 拡縮の設定をする関数
+	* @param[in] isScailing 拡縮するかどうかのフラグ(基本はfalse)
+	* @param[in] magX x座標に処理する倍率
+	* @param[in] magY y座標に処理する倍率
+	* @param[in] magZ z座標に処理する倍率
+	*/
+	void SetMag(bool isScailing, float magX = 1, float magY = 1, float magZ = 1);
+
+	/**
+	* 拡縮を行う関数
+	* @param[out] vtx 拡縮を行いたいバーテックス
+	* @param xzFlag xz平面で行うかどうかのフラグ基本はxy(false)
+	*/
+	void ScaleGeometry(CUSTOMVERTEX* vtx,bool xzFlag = false);
 
 };
 

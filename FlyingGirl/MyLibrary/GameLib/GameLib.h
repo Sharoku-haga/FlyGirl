@@ -73,11 +73,11 @@ public:
 	~GameLib();
 
 	/** 
- 	* GameLibの実体を取得する関数<br>
+ 	* GameLibの実体である関数<br>
 	* Singletonパターン.
 	* @return GameLibクラス
 	*/
-	static GameLib& GetInstance()
+	static GameLib& Instance()
 	{
 		static GameLib gameLib;
 		return gameLib;
@@ -116,7 +116,7 @@ public:
 	* 残すべきか悩んだが、デバイスを取得して方法を残した方がいいという意見が多数だったので残しておく@haga
 	* @return デバイスのポインタ
 	*/
-	const IDirect3DDevice9* GetDevice();					
+	IDirect3DDevice9* GetDevice();					
 
 	/**
 	* 描画開始処理関数.
@@ -173,7 +173,15 @@ public:
 	* @param[in] tvax	tv値の最大値
 	* @param[in] color  色情報(ARGB) デフォルト引数値は0xFFFFFFFF
 	*/
-	void SetVtx(int key, float tuMin, float tuMax, float tvMin, float tvMax, DWORD color = 0xFFFFFFFF);		 
+	void SetVtx(int key, float tuMin, float tuMax, float tvMin, float tvMax, DWORD color = 0xFFFFFFFF);		
+
+	/**
+	* 拡縮における倍率の設定
+	* @param[in] key	mapのキー
+	* @param[in] isScailing 拡縮するかどうかのフラグ(基本はfalse)
+	* @param[in] magX 座標に処理する倍率
+	*/
+	void SetMag(int key, bool isScailing, D3DXVECTOR3 mag = {1,1,1});
 
 	/**
 	* テクスチャーを(XY座標)において描画する関数
@@ -195,6 +203,13 @@ public:
 	* @param[in] posZ   z座標
 	*/
 	void DrawXZ(int texKey, int vtxKey, bool center, float posX, float posY, float posZ);
+
+	/**
+	* テクスチャーのポインタを取得する関数
+	* @prama texkey テクスチャーを登録したキー、またはID
+	* @return キーに一致したテクスチャーのポインタ
+	*/
+	LPDIRECT3DTEXTURE9 GetTexture(int texKey);
 
 	/**
 	* テクスチャーを解放する関数
