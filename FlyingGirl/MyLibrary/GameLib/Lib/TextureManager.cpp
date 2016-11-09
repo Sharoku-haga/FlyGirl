@@ -1,14 +1,14 @@
 ﻿/**
 * @file TextureManager.h
-* @brief テクスチャーを管理するクラスのh
+* @brief TextureManagerクラス実装
 * @author haga
 */
 
 #include "TextureManager.h"
 
 
-TextureManager::TextureManager():
-m_pD3Device(GraphicsDevice::GetInstance().GetDevice())
+TextureManager::TextureManager()
+	: m_pD3Device(GraphicsDevice::GetInstance().GetDevice())
 {
 }
 

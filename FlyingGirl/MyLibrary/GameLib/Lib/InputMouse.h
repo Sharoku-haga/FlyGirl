@@ -1,6 +1,6 @@
 ﻿/**
 * @file   InputMouse.h
-* @brief  マウス操作に関するクラス
+* @brief  InputMouseクラスヘッダ
 * @author haga
 */
 #ifndef INPUT_MOUSE_H
@@ -31,35 +31,6 @@ enum WHEELSTATE
 */
 class InputMouse
 {
-private:
-	HWND				 m_hWnd;								//!< ウィンドウハンドル格納
-	LPDIRECTINPUTDEVICE8 m_pMouseDevice;						//!< マウスデバイス
-	DIMOUSESTATE2		 m_dims;								//!< マウス構造体(ボタン関連)
-	INT					 m_wndWid;								//!< ウインドウサイズ幅
-	INT					 m_wndHgt;								//!< ウィンドドウサイズ高さ
-	LONG				 m_posX;								//!< マウスのx座標
-	LONG				 m_posY;								//!< マウスのy座標
-	LONG				 m_wheel;								//!< マウスのホイール
-	bool				 m_LDown;								//!< Update時点の左ボタン状態
-	bool				 m_RDown;								//!< Update時点の右ボタン状態
-	bool				 m_MDown;								//!< Update時点の中ボタン状態
-	bool				 m_LAction;								//!< ボタン押した直後だけONになる(クリックを拾うときに)
-	bool				 m_RAction;								//!< ボタン押した直後だけONになる(クリックを拾うときに)
-	bool				 m_MAction;								//!< ボタン押した直後だけONになる(クリックを拾うときに)
-	int					 m_PreMouse[MOUSEBUTTON::ButtonMAX];	//!< マウスのボタンの前の状態を格納する変数
-	BTN_STATE			 m_mouse[MOUSEBUTTON::ButtonMAX];		//!< マウスのボタンの状態を格納する変数
-
-	/**状態確認*/
-	bool GetIsLAction() const { return m_LAction; }
-	bool GetIsRAction() const { return m_RAction; }
-	bool GetIsMAction() const { return m_MAction; }
-
-	/**
-	* 状態を確認する関数
-	* @param[in] mouseButton マウスのボタンの種類
-	*/
-	void CheckState(MOUSEBUTTON mouseButton);
-
 public:
 	/**コンストラクタ*/
 	InputMouse();
@@ -88,7 +59,7 @@ public:
 	LONG GetPosY() const { return m_posY; }
 	LONG GetWheel() const { return m_wheel; }
 
-	
+
 	/**
 	* マウスの座標をセット.
 	* @param[in] x 座標x
@@ -99,6 +70,35 @@ public:
 		m_posX = x;
 		m_posY = y;
 	}
+
+private:
+	HWND				 m_hWnd;								//!< ウィンドウハンドル格納
+	LPDIRECTINPUTDEVICE8 m_pMouseDevice;						//!< マウスデバイス
+	DIMOUSESTATE2		 m_dims;								//!< マウス構造体(ボタン関連)
+	INT					 m_wndWid;								//!< ウインドウサイズ幅
+	INT					 m_wndHgt;								//!< ウィンドドウサイズ高さ
+	LONG				 m_posX;								//!< マウスのx座標
+	LONG				 m_posY;								//!< マウスのy座標
+	LONG				 m_wheel;								//!< マウスのホイール
+	bool				 m_LDown;								//!< Update時点の左ボタン状態
+	bool				 m_RDown;								//!< Update時点の右ボタン状態
+	bool				 m_MDown;								//!< Update時点の中ボタン状態
+	bool				 m_LAction;								//!< ボタン押した直後だけONになる(クリックを拾うときに)
+	bool				 m_RAction;								//!< ボタン押した直後だけONになる(クリックを拾うときに)
+	bool				 m_MAction;								//!< ボタン押した直後だけONになる(クリックを拾うときに)
+	int					 m_PreMouse[MOUSEBUTTON::ButtonMAX];	//!< マウスのボタンの前の状態を格納する変数
+	BTN_STATE			 m_mouse[MOUSEBUTTON::ButtonMAX];		//!< マウスのボタンの状態を格納する変数
+
+	/**状態確認*/
+	bool GetIsLAction() const { return m_LAction; }
+	bool GetIsRAction() const { return m_RAction; }
+	bool GetIsMAction() const { return m_MAction; }
+
+	/**
+	* 状態を確認する関数
+	* @param[in] mouseButton マウスのボタンの種類
+	*/
+	void CheckState(MOUSEBUTTON mouseButton);
 };
 
 #endif // INPUT_MOUSE_H

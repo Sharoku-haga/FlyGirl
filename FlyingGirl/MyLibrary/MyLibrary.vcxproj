@@ -107,6 +107,7 @@
     <ClInclude Include="GameLib\Lib\XFile.h" />
     <ClInclude Include="GameLib\Lib\XFileManager.h" />
     <ClInclude Include="Light\Light.h" />
+    <ClInclude Include="MyLibrary.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

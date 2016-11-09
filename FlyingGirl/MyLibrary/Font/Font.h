@@ -1,6 +1,6 @@
 ﻿/**
 * @file Font.h
-* @brief フォントを扱うクラスのh
+* @brief Fontクラスヘッダ
 * @author haga
 */
 #ifndef FONT_H
@@ -13,14 +13,11 @@
 */
 class Font
 {
-private:
-	IDirect3DDevice9*	m_pD3Device;		//!< Direct3Dのデバイス
-	LPD3DXFONT			m_pFont;			//!< ID3DXFontインターフェイスへのポインタ
-	INT					m_height;			//!< 文字の高さ
-	UINT				m_width;			//!< 文字の幅
-
 public:
-	/**コンストラクタ*/
+	/**
+	* コンストラクタ<br>
+	* @param[in] pD3Device デバイス
+	*/
 	Font(IDirect3DDevice9*	pD3Device);
 
 	/**
@@ -63,7 +60,14 @@ public:
 	* 1文字の高さを取得する関数.
 	* @return m_height	文字の高さ
 	*/
-	INT	 GetFontHeight(){ return m_height; }
+	INT	 GetFontHeight();
+
+private:
+	IDirect3DDevice9*	m_pD3Device;		//!< Direct3Dのデバイス
+	LPD3DXFONT			m_pFont;			//!< ID3DXFontインターフェイスへのポインタ
+	INT					m_height;			//!< 文字の高さ
+	UINT				m_width;			//!< 文字の幅
+
 
 };
 

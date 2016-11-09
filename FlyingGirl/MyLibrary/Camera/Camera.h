@@ -1,6 +1,6 @@
 ﻿/**
 * @file  Camera.h
-* @brief カメラクラス
+* @brief Cameraクラスヘッダ
 * @author haga
 */
 #ifndef CAMERA_H
@@ -9,15 +9,10 @@
 #include <d3dx9.h>
 
 /**
-* カメラクラス.
+* DirectXのカメラのクラス.
 */
 class Camera
 {
-private:
-	LPDIRECT3DDEVICE9		m_pD3Device;		//!< Direct3Dのデバイス
-	float					m_windowWidth;		//!< ウィンドウサイズ幅
-	float					m_windowHeight;		//!< ウィンドウサイズ高さ
-
 public:
 	/**コンストラクタ*/
 	Camera(LPDIRECT3DDEVICE9 pD3Device);
@@ -38,6 +33,12 @@ public:
 	* @param[in] angle			視野角
 	*/
 	void LookInCamera(const D3DXVECTOR3* vEyePt, const D3DXVECTOR3* vLookatPt, const float* angle);
+
+private:
+	LPDIRECT3DDEVICE9		m_pD3Device;		//!< Direct3Dのデバイス
+	float					m_windowWidth;		//!< ウィンドウサイズ幅
+	float					m_windowHeight;		//!< ウィンドウサイズ高さ
+
 
 };
 

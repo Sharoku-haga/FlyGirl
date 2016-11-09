@@ -1,6 +1,6 @@
 ﻿/**
 * @file GraphicsDevice.cpp
-* @brief グラフィックスデバイス関連のクラスのcpp
+* @brief GraphicsDeviceクラス実装
 * @author haga
 */
 #include <d3dx9.h>
@@ -9,9 +9,9 @@
 
 
 // コンストラクタ
-GraphicsDevice::GraphicsDevice():
-m_pDirect3D(NULL),
-m_pD3Device(NULL)
+GraphicsDevice::GraphicsDevice()
+	: m_pDirect3D(NULL)
+	, m_pD3Device(NULL)
 {
 }
 
@@ -137,6 +137,12 @@ void GraphicsDevice::SetRenderState3D()
 	m_pD3Device->SetRenderState(D3DRS_ZENABLE, TRUE);				// Zバッファ処理を有効にする
 //  m_pD3Device->SetRenderState( D3DRS_CULLMODE, D3DCULL_NONE );	// カリングしない
 	m_pD3Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);	    // カリングする
+}
+
+// デバイス取得関数
+IDirect3DDevice9* GraphicsDevice::GetDevice()
+{ 
+	return m_pD3Device; 
 }
 
 // 描画開始処理

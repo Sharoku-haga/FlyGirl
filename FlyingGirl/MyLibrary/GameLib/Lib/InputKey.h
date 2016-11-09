@@ -1,6 +1,6 @@
 ﻿/**
 * @file   InputKey.h
-* @brief  操作キーに関するクラスのh
+* @brief  InputKeyクラスヘッダ
 * @author haga
 */
 #ifndef INPUT_KEY_H
@@ -67,17 +67,6 @@ enum  KEYKIND
 */
 class InputKey
 {
-private:
-	LPDIRECTINPUTDEVICE8  m_pKeyDevice;			//!< キーボードデバイス格納用
-	int					  m_PreKey[KEYMAX];		//!< キーの状態格納する変数
-
-	/**
-	* 状態を確認する関数.
-	* @param[in] DIK	ダイレクトインプットキー
-	* @param[in] st	キー種類
-	*/
-	void CheckState(BYTE* DIK, KEYKIND st);
-
 public:
 	BYTE     m_diks[256];			//!< DIKを格納する変数
 	BTN_STATE m_Key[KEYMAX];			//!< キーの種類を格納する変数
@@ -97,6 +86,18 @@ public:
  	* @param[in] st		キーの種類
 	*/
 	BTN_STATE CheckKey(int DIK, KEYKIND st);
+
+private:
+	LPDIRECTINPUTDEVICE8  m_pKeyDevice;			//!< キーボードデバイス格納用
+	int					  m_PreKey[KEYMAX];		//!< キーの状態格納する変数
+
+	/**
+	* 状態を確認する関数.
+	* @param[in] DIK	ダイレクトインプットキー
+	* @param[in] st	キー種類
+	*/
+	void CheckState(BYTE* DIK, KEYKIND st);
+
 };
 
 #endif		// INPUT_KEY_H

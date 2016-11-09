@@ -1,6 +1,6 @@
 ﻿/**
 * @file   XFile.h
-* @brief  Xファイルを扱うクラスのh
+* @brief  XFileクラスヘッダ
 * @author haga
 */
 #ifndef XFILE_H
@@ -13,13 +13,6 @@
 */
 class XFile
 {
-private:
-	IDirect3DDevice9*		m_pD3Device;		//!< Direct3Dのデバイス
-	LPD3DXMESH				m_pMesh;			//!< ID3DXMeshのインターフェイスへのポインタ
-	D3DMATERIAL9*			m_pMaterials;		//!< マテリアル
-	LPDIRECT3DTEXTURE9*		m_pTextures;		//!< テクスチャー
-	DWORD					m_dwNumMaterials;	//!< マテリアル数
-
 public:
 	/**コンストラクタ*/
 	XFile();
@@ -45,6 +38,14 @@ public:
 	* FailManagerに使用するために作成
 	*/
 	void Release();
+
+private:
+	IDirect3DDevice9*		m_pD3Device;		//!< Direct3Dのデバイス
+	LPD3DXMESH				m_pMesh;			//!< ID3DXMeshのインターフェイスへのポインタ
+	D3DMATERIAL9*			m_pMaterials;		//!< マテリアル
+	LPDIRECT3DTEXTURE9*		m_pTextures;		//!< テクスチャー
+	DWORD					m_dwNumMaterials;	//!< マテリアル数
+
 };
 
 #endif	// XFILE_H

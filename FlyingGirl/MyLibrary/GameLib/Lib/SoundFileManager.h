@@ -1,6 +1,6 @@
 ﻿/**
-* @file SoundFileManager
-* @brief  サウンドを管理するクラスのh
+* @file SoundFileManager.h
+* @brief  SoundFileManagerクラスヘッダ
 * @author haga
 */
 #ifndef SOUND_FILE_MANAGER_H
@@ -11,7 +11,6 @@
 #include <map>
 #include <dsound.h>
 
-//#pragma comment(lib, "dsound.lib")
 
 /**音楽の再生方式*/
 enum SOUND_MODE
@@ -31,22 +30,11 @@ enum SOUND_MODE
 class SoundFileManager
 {
 private:
-	IDirectSound8*								m_pDSound8;			//!< DirectSoundのインターフェイス
-	std::map<int, LPDIRECTSOUNDBUFFER8>			m_soundMap;			//!< サウンドファイルを格納する変数
-	bool										m_releaseFlag;		//!< メモリ解放フラグ
 
 	/**
-	* WAVEファイルオープン関数.
-	* @param[in]	filepath		音楽ファイル名
-	* @param[out]   waveFormatEx	waveフォーマット
-	* @param[out]	pwaveData		waveデータ
-	* @param[out]	dataSize		データサイズ
-	* @retval	true	waveファイルオープン成功
-	* @retval	false	waveファイルオープン失敗
+	* コンストラクタ<br>
+	* Singltonパターンの為private
 	*/
-	bool OpenWave(TCHAR* filepath, WAVEFORMATEX* waveFormatEx, char** pwaveData, DWORD* dataSize);
-
-	/**コンストラクタ*/
 	SoundFileManager();
 
 public:
@@ -94,6 +82,22 @@ public:
 
 	/**サウンド全てを解放する関数*/
 	void ReleaseALL();
+
+private:
+	IDirectSound8*								m_pDSound8;			//!< DirectSoundのインターフェイス
+	std::map<int, LPDIRECTSOUNDBUFFER8>			m_soundMap;			//!< サウンドファイルを格納する変数
+	bool										m_releaseFlag;		//!< メモリ解放フラグ
+
+	/**
+	* WAVEファイルオープン関数.
+	* @param[in]	filepath		音楽ファイル名
+	* @param[out]   waveFormatEx	waveフォーマット
+	* @param[out]	pwaveData		waveデータ
+	* @param[out]	dataSize		データサイズ
+	* @retval	true	waveファイルオープン成功
+	* @retval	false	waveファイルオープン失敗
+	*/
+	bool OpenWave(TCHAR* filepath, WAVEFORMATEX* waveFormatEx, char** pwaveData, DWORD* dataSize);
 };
 
 

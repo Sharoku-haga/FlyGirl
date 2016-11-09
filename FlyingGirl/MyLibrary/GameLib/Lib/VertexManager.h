@@ -1,6 +1,6 @@
 ﻿/**
 * @file VertexManager.h
-* @brief Vertexクラスを管理するクラス
+* @brief  VertexManagerクラスヘッダ
 * @author haga
 */
 #ifndef VERTEX_MANAGER_H
@@ -9,11 +9,11 @@
 #include <map>
 #include "Vertex.h"
 
+/**
+* Vertexクラスを管理するクラス
+*/
 class VertexManager
 {
-private:
-	std::map<int, Vertex> m_vertex;				//!< バーテックスクラスを格納する変数 
-
 public:
 	/**コンストラクタ*/
 	VertexManager();
@@ -116,6 +116,10 @@ public:
 
 	/**全てのバーテックスを解放する関数*/
 	void ReleaseALL();
+
+private:
+		std::map<int, Vertex> m_vertex;				//!< バーテックスクラスを格納する変数 
+
 };
 
 #endif	// VERTEX_MANAGER_H

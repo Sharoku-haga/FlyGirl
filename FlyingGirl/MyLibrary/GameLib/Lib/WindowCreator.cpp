@@ -1,19 +1,19 @@
 ﻿/**
 * @file WindowCreator.cpp
-* @brief ウィンドウを作成するクラス
+* @brief WindowCreatorクラス実装
 * @author haga
 */
 #include <windows.h>
 #include"WindowCreator.h"
 
 
-WindowCreator::WindowCreator(TCHAR*  title, int width, int height) :
-m_hWnd(NULL),
-m_wTitle(title),
-m_wWidth(width),
-m_wHeight(height),
-m_wType(true),
-m_hasIcon(false)
+WindowCreator::WindowCreator(TCHAR*  title, int width, int height) 
+	: m_hWnd(NULL)
+	, m_wTitle(title)
+	, m_wWidth(width)
+	, m_wHeight(height)
+	, m_wType(true)
+	, m_hasIcon(false)
 {
 }
 

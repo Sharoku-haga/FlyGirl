@@ -1,6 +1,6 @@
 ﻿/**
 * @file   DebugTimer.h
-* @brief   デバックの為の時間を計測するクラスのh
+* @brief   DebugTimerクラスヘッダ
 * @author haga
 */
 #ifndef DEBUG_TIMER_H
@@ -10,24 +10,12 @@
 #include <vector>
 #include "DebugFont.h"
 
-
 /**
-* デバック用タイマークラス<br>
+* デバック用時間を計測するクラス<br>
 * 時間取得にはtimeGetTimeを使用。他の時間取得関数も検討する
 */
 class DebugTimer
-{
-private:
-	/**計測時間管理用構造体*/
-	struct DebugTime
-	{
-		std::string  timeName;					//!< 計測している時間
-		DWORD		 time;						//!< 計測時間
-		bool		 measureFlag;				//!< 計測しているかのフラグ
-	};
-
-	std::vector<DebugTime>	m_debugTime;		//!< 計測時間を管理する変数
-	
+{	
 public:
 	/**コンストラクタ*/
 	DebugTimer();
@@ -83,6 +71,17 @@ public:
 	* @param[in] pos 表示開始座標
 	*/
 	void DrawAllResult(D3DXVECTOR2 pos);
+
+private:
+	/**計測時間管理用構造体*/
+	struct DebugTime
+	{
+		std::string  timeName;					//!< 計測している時間
+		DWORD		 time;						//!< 計測時間
+		bool		 measureFlag;				//!< 計測しているかのフラグ
+	};
+
+	std::vector<DebugTime>	m_debugTime;		//!< 計測時間を管理する変数
 };
 
 

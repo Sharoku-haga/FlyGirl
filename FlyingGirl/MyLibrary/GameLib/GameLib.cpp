@@ -1,4 +1,9 @@
-﻿#include "./Lib/WindowCreator.h"	
+﻿/**
+* @file GameLib.cpp
+* @brief GameLibクラス実装
+* @author haga
+*/
+#include "./Lib/WindowCreator.h"	
 #include "./Lib/GraphicsDevice.h"
 #include "./Lib/InputDevice.h"
 #include "./Lib/InputMouse.h"
@@ -11,20 +16,20 @@
 #include "GameLib.h"
 
 
-GameLib::GameLib():
-m_pWindowCreator(NULL),
-m_pGraphicsDevice(NULL),
-m_pInputDevice(NULL),
-m_pSoundFileManager(NULL),
-m_pInputMouse(NULL),
-m_pInputKey(NULL),
-m_pTextureManager(NULL),
-m_pXFileManager(NULL),
-m_pVertexManager(NULL),
-m_wWidth(0),
-m_wHeight(0),
-m_releaseFlag(false)
-{	
+GameLib::GameLib()
+	: m_pWindowCreator(nullptr)
+	, m_pGraphicsDevice(nullptr)
+	, m_pInputDevice(nullptr)
+	, m_pSoundFileManager(nullptr)
+	, m_pInputMouse(nullptr)
+	, m_pInputKey(nullptr)
+	, m_pTextureManager(nullptr)
+	, m_pXFileManager(nullptr)
+	, m_pVertexManager(nullptr)
+	, m_wWidth(0)
+	, m_wHeight(0)
+	, m_releaseFlag(false)
+{
 }
 
 

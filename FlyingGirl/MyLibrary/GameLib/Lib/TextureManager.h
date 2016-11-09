@@ -1,6 +1,6 @@
 ﻿/**
 * @file TextureManager.h
-* @brief テクスチャーを管理するクラスのh
+* @brief TextureManagerクラスヘッダ
 * @author haga
 */
 #ifndef TEXTURE_MANAGER_H
@@ -11,12 +11,11 @@
 #include "GraphicsDevice.h"
 #include <map>
 
+/**
+* テクスチャーを管理するクラス<br>
+*/
 class TextureManager
 {
-private:
-	IDirect3DDevice9*				  m_pD3Device;	//!< デバイス
-	std::map<int, LPDIRECT3DTEXTURE9> m_texture;	//!< テクスチャー情報を格納する変数
-
 public:
 	/**コンストタクタ*/
 	TextureManager();
@@ -59,6 +58,10 @@ public:
 	* テクスチャーをすべて解放する関数
 	*/
 	void ReleaseALL();
+
+private:
+	IDirect3DDevice9*				  m_pD3Device;	//!< デバイスへのポインタ
+	std::map<int, LPDIRECT3DTEXTURE9> m_texture;	//!< テクスチャー情報を格納する変数
 
 };
 

@@ -1,6 +1,6 @@
 ﻿/**
 * @file WindowCreator.h
-* @brief ウィンドウを作成するクラス
+* @brief WindowCreatorクラスヘッダ
 * @author haga
 * @data 2016/09/28
 */
@@ -12,18 +12,6 @@
 */
 class WindowCreator
 {
-private:
-
-	WNDCLASSEX  m_wndc;				//!< ウィンドウクラス
-	HWND		m_hWnd;				//!< ウィンドウハンドル
-	RECT		m_wRect;			//!< ウインドウサイズを保持しておく変数
-	TCHAR*      m_wTitle;			//!< ウィンドウのタイトル
-	HICON	    m_hIcon;			//!< ウィンドウのアイコン
-	int		    m_wWidth;			//!< ウインドウの幅
-	int			m_wHeight;			//!< ウィンドウの高さ
-	bool		m_wType;			//!< ウィンドウサイズが通常ならtrue,フルスクリーンならfalse
-	bool		m_hasIcon;			//!< アイコンをもつかどうかのフラグ
-
 public:
 	/**
 	* コンストラクタ.
@@ -63,6 +51,16 @@ public:
 	*/
 	HWND GetHwnd(){ return m_hWnd; };
 
+private:
+	WNDCLASSEX  m_wndc;				//!< ウィンドウクラス
+	HWND		m_hWnd;				//!< ウィンドウハンドル
+	RECT		m_wRect;			//!< ウインドウサイズを保持しておく変数
+	TCHAR*      m_wTitle;			//!< ウィンドウのタイトル
+	HICON	    m_hIcon;			//!< ウィンドウのアイコン
+	int		    m_wWidth;			//!< ウインドウの幅
+	int			m_wHeight;			//!< ウィンドウの高さ
+	bool		m_wType;			//!< ウィンドウサイズが通常ならtrue,フルスクリーンならfalse
+	bool		m_hasIcon;			//!< アイコンをもつかどうかのフラグ
 };
 
 #endif	// WINDOW_CREATOR_H

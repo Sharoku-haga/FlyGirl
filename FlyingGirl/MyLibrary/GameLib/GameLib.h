@@ -1,6 +1,6 @@
 ﻿/**
 * @file GameLib.h
-* @brief  Facadeパターンのライブラリ
+* @brief GameLibクラスヘッダ
 * @author haga
 */
 #ifndef GAMELIB_H
@@ -56,7 +56,7 @@ enum SOUND_OPERATION
 };
 
 /**
-* ライブラリのクラス	
+* Facadeパターンのライブラリのクラス	
 */
 class GameLib
 {

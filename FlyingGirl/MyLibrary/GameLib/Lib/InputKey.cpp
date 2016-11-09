@@ -1,6 +1,6 @@
 ﻿/**
 * @file InputKey.cpp
-* @brief  操作キーに関するクラスのcpp
+* @brief  InputKeyクラスの実装
 * @author haga
 */
 #include <dinput.h>
@@ -8,7 +8,8 @@
 #include "InputKey.h"
 
 // コンストラクタ
-InputKey::InputKey() : m_pKeyDevice(InputDevice::GetInstance().GetKeyDevice())
+InputKey::InputKey()
+	: m_pKeyDevice(InputDevice::GetInstance().GetKeyDevice())
 {
 	for (int i = 0; i < KEYMAX;i++)
 	{
