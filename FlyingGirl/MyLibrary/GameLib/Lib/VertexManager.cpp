@@ -67,6 +67,12 @@ void VertexManager::SetColor(int key, DWORD color)
 	m_vertex[key].SetColor(color);
 }
 
+// 拡縮を設定する関数
+void VertexManager::SetMagnification(int key, bool isScailing, float magX , float magY, float magZ)
+{
+	m_vertex[key].SetMag(isScailing, magX, magY, magZ);
+}
+
 // バーテックスを解放する関数
 void VertexManager::Release(int key)
 {

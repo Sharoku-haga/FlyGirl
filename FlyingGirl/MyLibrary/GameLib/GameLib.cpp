@@ -180,6 +180,11 @@ void GameLib::SetVtx(int key,float tuMin, float tuMax, float tvMin, float tvMax,
 	m_pVertexManager->SetColor(key,color);
 }
 
+void  GameLib::SetMag(int key, bool isScailing, D3DXVECTOR3 mag)
+{
+	m_pVertexManager->SetMagnification(key,isScailing,mag.x,mag.y,mag.z);
+}
+
 LPDIRECT3DTEXTURE9 GameLib::GetTexture(int texKey)
 {
 	return m_pTextureManager->GetTex(texKey);

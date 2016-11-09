@@ -8,7 +8,7 @@
 #define WINDOW_CREATOR_H
 #include <windows.h>
 /*
-*ウィンドウを作成するクラス
+* ウィンドウを作成するクラス
 */
 class WindowCreator
 {

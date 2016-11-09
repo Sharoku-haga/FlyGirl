@@ -173,7 +173,15 @@ public:
 	* @param[in] tvax	tv値の最大値
 	* @param[in] color  色情報(ARGB) デフォルト引数値は0xFFFFFFFF
 	*/
-	void SetVtx(int key, float tuMin, float tuMax, float tvMin, float tvMax, DWORD color = 0xFFFFFFFF);		 
+	void SetVtx(int key, float tuMin, float tuMax, float tvMin, float tvMax, DWORD color = 0xFFFFFFFF);		
+
+	/**
+	* 拡縮における倍率の設定
+	* @param[in] key	mapのキー
+	* @param[in] isScailing 拡縮するかどうかのフラグ(基本はfalse)
+	* @param[in] magX 座標に処理する倍率
+	*/
+	void SetMag(int key, bool isScailing, D3DXVECTOR3 mag = {1,1,1});
 
 	/**
 	* テクスチャーを(XY座標)において描画する関数
