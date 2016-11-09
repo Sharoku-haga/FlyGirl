@@ -1,14 +1,14 @@
 ﻿/**
 * @file  Camera.cpp
-* @brief カメラクラス
+* @brief Cameraクラス実装
 * @author haga
 */
 #include "Camera.h"
 
-Camera::Camera(LPDIRECT3DDEVICE9 pD3Device) :
-m_pD3Device(pD3Device),
-m_windowWidth(0),
-m_windowHeight(0)
+Camera::Camera(LPDIRECT3DDEVICE9 pD3Device)
+	: m_pD3Device(pD3Device)
+	, m_windowWidth(0)
+	, m_windowHeight(0)
 {
 }
 

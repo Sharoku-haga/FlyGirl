@@ -1,24 +1,24 @@
 ﻿/**
 * @file   Vertex.h
-* @brief  バーテックスクラスのcpp
+* @brief  Vertexクラス実装
 * @author haga
 */
 #include "Vertex.h"
 
 // コンストラクタ
-Vertex::Vertex(float width, float height, float depth, float tuMax, float tvMax,float tuMin, float tvMin) :
-m_pD3Device(GraphicsDevice::GetInstance().GetDevice()),
-m_texWidth(width),
-m_texHeight(height),
-m_texDepth(depth),
-m_tuMax(tuMax),
-m_tvMax(tvMax),
-m_tuMin(tuMin),
-m_tvMin(tuMin),
-m_mag(0,0,0),
-m_isScaling(false)
+Vertex::Vertex(float width, float height, float depth, float tuMax, float tvMax, float tuMin, float tvMin)
+	: m_pD3Device(GraphicsDevice::GetInstance().GetDevice())
+	, m_texWidth(width)
+	, m_texHeight(height)
+	, m_texDepth(depth)
+	, m_tuMax(tuMax)
+	, m_tvMax(tvMax)
+	, m_tuMin(tuMin)
+	, m_tvMin(tuMin)
+	, m_mag(0, 0, 0)
+	, m_isScaling(false)
 {
-	for (int i = 0; i < 4;i++)
+	for (int i = 0; i < 4; i++)
 	{
 		m_color[i] = 0xFFFFFFFF;
 	}

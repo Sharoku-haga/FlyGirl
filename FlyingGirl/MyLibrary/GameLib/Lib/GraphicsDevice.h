@@ -1,6 +1,6 @@
 ﻿/**
 * @file GraphicsDevice.h
-* @brief グラフィックスデバイス関連のクラスのh
+* @brief GraphicsDeviceクラスヘッダ
 * @author haga
 */
 #ifndef GRAPHIC_DEVICE_H
@@ -17,18 +17,12 @@
 class GraphicsDevice
 {
 private:
-	IDirect3D9*				m_pDirect3D;	//!< Direct3Dのインターフェイス
-	IDirect3DDevice9*		m_pD3Device;	//!< Direct3Dのデバイス
-	D3DDISPLAYMODE			m_d3ddm;		//!< ディスプレイ
-	D3DPRESENT_PARAMETERS	m_d3dpp;		//!< パラメーター
-	D3DPRESENT_PARAMETERS	m_d3dppWindow;	//!< 通常パラメーター
-	D3DPRESENT_PARAMETERS	m_d3dppFull;	//!< フルスクリーン用パラメーター
-	bool					m_wType;		//!< ウィンドウタイプ trueなら通常 falseならフルスクリーン
-
-public:
-	/**コンストラクタ*/
+	/**
+	* コンストラクタ<br>
+	* Singletonパターンの為private
+	*/
 	GraphicsDevice();
-
+public:
 	/**デストラクタ*/
 	~GraphicsDevice();
 
@@ -68,7 +62,7 @@ public:
 	* デバイス取得
 	* @ruturn m_pD3Device グラフィックデバイス
 	*/
-	IDirect3DDevice9* GetDevice(){ return m_pD3Device; };
+	IDirect3DDevice9* GetDevice();
 
 	/**描画開始処理*/
 	void StartRender();
@@ -94,6 +88,14 @@ public:
 	*/
 	HRESULT ChangeDisplayMode();
 
+private:
+	IDirect3D9*				m_pDirect3D;	//!< Direct3Dのインターフェイス
+	IDirect3DDevice9*		m_pD3Device;	//!< Direct3Dのデバイス
+	D3DDISPLAYMODE			m_d3ddm;		//!< ディスプレイ
+	D3DPRESENT_PARAMETERS	m_d3dpp;		//!< パラメーター
+	D3DPRESENT_PARAMETERS	m_d3dppWindow;	//!< 通常パラメーター
+	D3DPRESENT_PARAMETERS	m_d3dppFull;	//!< フルスクリーン用パラメーター
+	bool					m_wType;		//!< ウィンドウタイプ trueなら通常 falseならフルスクリーン
 };
 
 

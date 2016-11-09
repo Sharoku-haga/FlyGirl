@@ -1,6 +1,6 @@
 ﻿/**
 * @file DebugFont.h
-* @brief デバックで使用するフォントのクラス
+* @brief DebugFontクラスヘッダ
 * @author haga
 */
 
@@ -10,15 +10,11 @@
 #include<d3dx9.h>
 #include"GraphicsDevice.h"
 
+/**
+* デバック時に使用するフォントのクラス
+*/
 class DebugFont
 {
-private:
-	IDirect3DDevice9*	m_pD3Device;		//!< Direct3Dのデバイス
-	LPD3DXFONT			m_pFont;			//!< ID3DXFontインターフェイスへのポインタ
-	INT					m_height;			//!< 文字の高さ
-	UINT				m_width;			//!< 文字の幅
-	D3DCOLOR			m_color;			//!< 文字の色
-
 public:
 	/**コンストラクタ*/
 	DebugFont(INT height = 20, UINT width = 10, D3DCOLOR color = D3DCOLOR_XRGB(255, 255, 255));
@@ -42,7 +38,15 @@ public:
 	* 1文字の高さを取得する関数.
 	* @return m_height	文字の高さ
 	*/
-	INT	 GetFontHeight(){ return m_height; }
+	INT	 GetFontHeight();
+
+private:
+	IDirect3DDevice9*	m_pD3Device;		//!< Direct3Dのデバイス
+	LPD3DXFONT			m_pFont;			//!< ID3DXFontインターフェイスへのポインタ
+	INT					m_height;			//!< 文字の高さ
+	UINT				m_width;			//!< 文字の幅
+	D3DCOLOR			m_color;			//!< 文字の色
+
 };
 
 #endif // DEBUG_FONT_H

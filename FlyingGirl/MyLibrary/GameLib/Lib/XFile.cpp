@@ -1,17 +1,18 @@
 ﻿/**
 * @file   XFile.cpp
-* @brief  Xファイルを扱うクラスのcpp
+* @brief  XFileクラス実装
 * @author haga
 */
 
 #include "XFile.h"
 
 // コンストラクタ
-XFile::XFile() :m_pD3Device(GraphicsDevice::GetInstance().GetDevice()),
-m_pMesh(NULL),
-m_pMaterials(NULL),
-m_pTextures(NULL),
-m_dwNumMaterials(0)
+XFile::XFile()
+	: m_pD3Device(GraphicsDevice::GetInstance().GetDevice())
+	, m_pMesh(NULL)
+	, m_pMaterials(NULL)
+	, m_pTextures(NULL)
+	, m_dwNumMaterials(0)
 {
 }
 
@@ -94,6 +95,6 @@ void XFile::Release()
 		m_pMesh->Release();
 		m_pMesh = NULL;
 	}
-	delete m_pMaterials;
-	delete m_pTextures;
+	delete[] m_pMaterials;
+	delete[] m_pTextures;
 }

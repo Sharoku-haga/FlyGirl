@@ -1,6 +1,6 @@
 ﻿/**
 * @file  Light.h
-* @brief ライトに関するクラス
+* @brief Lightクラスヘッダ
 * @author haga
 */
 #ifndef LIGHT_H
@@ -12,14 +12,6 @@
 */
 class Light
 {
-private:
-	LPDIRECT3DDEVICE9		m_pD3Device;		//!< Direct3Dのデバイス
-	D3DLIGHT9				m_light;			//!< ライト構造体
-	D3DXVECTOR3				m_lightPos;			//!< ライトの位置
-	D3DXVECTOR3             m_direction;		//!< ライトの向き
-	DWORD					m_ambientColor;		//!< アンビエント色
-	
-
 public:
 	/**
 	* コンストラクタ
@@ -83,6 +75,13 @@ public:
 	* @param[in] dB B値
 	*/
 	void SetSpecular(float dR, float dG, float dB);
+
+private:
+	LPDIRECT3DDEVICE9		m_pD3Device;		//!< Direct3Dのデバイス
+	D3DLIGHT9				m_light;			//!< ライト構造体
+	D3DXVECTOR3				m_lightPos;			//!< ライトの位置
+	D3DXVECTOR3             m_direction;		//!< ライトの向き
+	DWORD					m_ambientColor;		//!< アンビエント色
 };
 
 #endif		// LIGHT_H

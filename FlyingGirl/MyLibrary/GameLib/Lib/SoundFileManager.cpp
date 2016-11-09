@@ -1,14 +1,14 @@
 ﻿/**
 * @file SoundFileManager.cpp
-* @brief サウンドを管理するクラスのcpp
+* @brief  SoundFileManagerクラス実装
 * @author haga
 */
 
 #include "SoundFileManager.h"
 
-SoundFileManager::SoundFileManager():
-m_pDSound8(NULL),
-m_releaseFlag(false)
+SoundFileManager::SoundFileManager()
+	: m_pDSound8(NULL)
+	, m_releaseFlag(false)
 {
 }
 

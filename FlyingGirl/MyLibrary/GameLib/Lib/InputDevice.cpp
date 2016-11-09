@@ -1,16 +1,17 @@
 ﻿/**
 * @file   InputDevice.cpp
-* @brief  DirectInput関連クラスのcpp
+* @brief  InputDeviceクラス実装
 * @author haga
 */
 #include <dinput.h>
 #include "InputDevice.h"
 
 // コンストラクタ
-InputDevice::InputDevice() : m_pDInput(NULL),
-m_pKeyDevice(NULL),
-m_pMouseDevice(NULL),
-m_hWnd(NULL)
+InputDevice::InputDevice() 
+	: m_pDInput(NULL)
+	, m_pKeyDevice(NULL)
+	, m_pMouseDevice(NULL)
+	, m_hWnd(NULL)
 {
 }
 

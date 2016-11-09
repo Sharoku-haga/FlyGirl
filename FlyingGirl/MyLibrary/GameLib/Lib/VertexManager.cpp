@@ -1,6 +1,6 @@
 ﻿/**
 * @file VertexManager.cpp
-* @brief Vertexクラスを管理するクラス
+* @brief VertexManagerクラス実装
 * @author haga
 */
 #include "VertexManager.h"

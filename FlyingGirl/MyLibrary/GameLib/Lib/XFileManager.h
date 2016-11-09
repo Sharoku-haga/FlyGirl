@@ -1,6 +1,6 @@
 ﻿/**
 * @file XFileManager.h
-* @brief Xファイルを一括で扱うクラスのh
+* @brief XFileManagerクラスヘッダ
 * @haga
 */
 #ifndef XFILE_MANAGER_H
@@ -12,11 +12,11 @@
 
 class XFile;
 
+/**
+* Xファイルを一括で扱うクラス
+*/
 class XFileManager
 {
-private:
-	std::map<int,XFile>  m_xFile;	//!< Xファイルを格納する変数
-
 public:
 	/**コンストラクタ*/
 	XFileManager();
@@ -46,6 +46,9 @@ public:
 	* マネージャーが管理しているすべてのファイルを解放する関数
 	*/
 	void ReleaseALL();
+
+private:
+	std::map<int, XFile>  m_xFile;	//!< Xファイルを格納する変数
 };
 
 #endif	// XFILE_MANAGER_H

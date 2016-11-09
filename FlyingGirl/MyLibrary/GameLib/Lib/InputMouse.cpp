@@ -1,15 +1,15 @@
 ﻿/**
 * @file   InputMouse.cpp
-* @brief  マウス操作に関するクラス.
+* @brief  InputMouseクラス実装.
 * @author haga
 */
 #include "InputDevice.h"
 #include "InputMouse.h"
 
 // コンストラクタ
-InputMouse::InputMouse() :
-m_pMouseDevice(InputDevice::GetInstance().GetMouseDevice()),
-m_hWnd(InputDevice::GetInstance().GethWnd())
+InputMouse::InputMouse()
+	: m_pMouseDevice(InputDevice::GetInstance().GetMouseDevice())
+	, m_hWnd(InputDevice::GetInstance().GethWnd())
 {
 	// クライアントサイズを取得
 	RECT rec;		

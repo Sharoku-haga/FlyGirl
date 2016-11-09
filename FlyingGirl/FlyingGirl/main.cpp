@@ -10,7 +10,7 @@
 
 //#define FULLSCREEN
 
-#define GAME_TITLE TEXT("少女大飛行")		// ゲームタイトルS
+#define GAME_TITLE TEXT("少女大飛行")		// ゲームタイトル
 #define CLIENT_W 1280						// クライアント領域の幅
 #define CLIENT_H 960						// クライアント領域の高さ
 #define GAME_FPS (1000 / 60)				// FPS
