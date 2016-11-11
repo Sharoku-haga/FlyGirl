@@ -72,6 +72,9 @@
     <ClCompile Include="Light\Light.cpp">
       <Filter>MyLibrary\Light</Filter>
     </ClCompile>
+    <ClCompile Include="GameLib\Lib\AnimationInfo.cpp">
+      <Filter>MyLibrary\GameLib\Lib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameLib\GameLib.h">
@@ -127,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="MyLibrary.h">
       <Filter>MyLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Lib\AnimationInfo.h">
+      <Filter>MyLibrary\GameLib\Lib</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
