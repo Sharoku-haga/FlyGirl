@@ -75,6 +75,7 @@
     <ClCompile Include="Font\Font.cpp" />
     <ClCompile Include="GameLib\GameLib.cpp" />
     <ClCompile Include="GameLib\Lib\AnimationInfo.cpp" />
+    <ClCompile Include="GameLib\Lib\AnimationInfoManager.cpp" />
     <ClCompile Include="GameLib\Lib\DebugFont.cpp" />
     <ClCompile Include="GameLib\Lib\DebugTimer.cpp" />
     <ClCompile Include="GameLib\Lib\GraphicsDevice.cpp" />
@@ -95,6 +96,7 @@
     <ClInclude Include="Font\Font.h" />
     <ClInclude Include="GameLib\GameLib.h" />
     <ClInclude Include="GameLib\Lib\AnimationInfo.h" />
+    <ClInclude Include="GameLib\Lib\AnimationInfoManager.h" />
     <ClInclude Include="GameLib\Lib\DebugFont.h" />
     <ClInclude Include="GameLib\Lib\DebugTimer.h" />
     <ClInclude Include="GameLib\Lib\GraphicsDevice.h" />

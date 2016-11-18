@@ -16,19 +16,30 @@ AnimationInfo::AnimationInfo(int aniPat, int interval, float intervalTu, float i
 {
 	m_animeInfo = new AnimeInfo[m_animePattern];
 
+	int countNumTu = 0;				// Tu値を増やした回数をカウントする数
+	int countNumTv = 0;				// Tv値を増やした回数をカウントする数
+
 	for(int i = 0; i < m_animePattern; i++)
 	{
-		m_animeInfo[i].minTu = 0.0f + (intervalTu * i);
-		m_animeInfo[i].minTv = 0.0f + (intervalTv * i);
-		m_animeInfo[i].maxTu = intervalTu + ( intervalTu * i );
-		m_animeInfo[i].maxTv = intervalTv + ( intervalTv * i );
+		if(intervalTv != 1.0f && intervalTu == 1.0f)
+		{
+			countNumTu = 0;
+			countNumTv++;
+		}
+
+		m_animeInfo[i].minTu = 0.0f + ( intervalTu *  countNumTu );
+		m_animeInfo[i].maxTu = intervalTu + ( intervalTu *  countNumTu );
+		m_animeInfo[i].minTv = 0.0f + ( intervalTv * countNumTv );
+		m_animeInfo[i].maxTv = intervalTv + ( intervalTv * countNumTv );
+
+		countNumTu++;
 	}
 }
 
 
 AnimationInfo::~AnimationInfo()
 {
-	delete[] m_animeInfo;
+	Release();
 }
 
 
@@ -105,3 +116,8 @@ void AnimationInfo::SetAnimeInfo(int animeNum, float minTu, float maxTu, float m
 	m_animeInfo[( animeNum - 1 )].maxTv = maxTv;
 }
 
+void AnimationInfo::Release()
+{
+	delete[] m_animeInfo;
+	m_animeInfo = nullptr;
+}

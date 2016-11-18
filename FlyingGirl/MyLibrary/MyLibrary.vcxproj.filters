@@ -75,6 +75,9 @@
     <ClCompile Include="GameLib\Lib\AnimationInfo.cpp">
       <Filter>MyLibrary\GameLib\Lib</Filter>
     </ClCompile>
+    <ClCompile Include="GameLib\Lib\AnimationInfoManager.cpp">
+      <Filter>MyLibrary\GameLib\Lib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameLib\GameLib.h">
@@ -132,6 +135,9 @@
       <Filter>MyLibrary</Filter>
     </ClInclude>
     <ClInclude Include="GameLib\Lib\AnimationInfo.h">
+      <Filter>MyLibrary\GameLib\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Lib\AnimationInfoManager.h">
       <Filter>MyLibrary\GameLib\Lib</Filter>
     </ClInclude>
   </ItemGroup>
