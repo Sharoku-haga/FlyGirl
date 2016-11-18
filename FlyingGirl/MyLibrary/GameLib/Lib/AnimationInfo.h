@@ -12,8 +12,15 @@
 class AnimationInfo
 {
 public:
-	/**コンストラクタ*/
-	AnimationInfo(int aniPat,int interval,float intevalTu = 1.0f,float intevalTv = 1.0f,bool isReverse = false);
+	/**
+	* コンストラクタ
+	* @param[in]	aniPat		アニメのパターン数
+	* @param[in]	interval	アニメーションの時間間隔	
+	* @param[in]	intervalTu	アニメーションで変動するtu値
+	* @param[in]	intervalTv	アニメーションで変動するtv値
+	* @param[in]	isReverse	逆再生モードか、通常モードかを判定
+	*/
+	AnimationInfo(int aniPat,int interval,float intevalTu,float intevalTv,bool isReverse = false);
 
 	/**デストラクタ*/
 	~AnimationInfo();
