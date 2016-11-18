@@ -31,6 +31,8 @@ public:
 	*/
 	void SetAnimeInfo(int animeNum, float minTu, float maxTu, float minTv, float maxTv);
 
+	void Release();
+
 	/**
 	* 現在のアニメのminTu値を取得する関数 
 	* @return minTu値 

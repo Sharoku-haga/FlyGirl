@@ -28,7 +28,7 @@ AnimationInfo::AnimationInfo(int aniPat, int interval, float intervalTu, float i
 
 AnimationInfo::~AnimationInfo()
 {
-	delete[] m_animeInfo;
+	Release();
 }
 
 
@@ -105,3 +105,7 @@ void AnimationInfo::SetAnimeInfo(int animeNum, float minTu, float maxTu, float m
 	m_animeInfo[( animeNum - 1 )].maxTv = maxTv;
 }
 
+void AnimationInfo::Release()
+{
+	delete[] m_animeInfo;
+}
